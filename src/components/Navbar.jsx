@@ -5,7 +5,7 @@ import notificationIcon from "../icons/notification_icon.png"
 import profileIcon from "../icons/profile_icon.png"
 function Navbar() {
     return (
-        <div className='h-24 flex text-center justify-between items-center px-24'>
+        <div className='h-24 flex text-center  justify-between items-center px-24 '>
             <div className='h-16 '>
                 <img src={mainLogo} alt="" className='h-16   rounded-xl' />
             </div>
