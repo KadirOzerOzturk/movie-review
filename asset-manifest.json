@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/movie-review/static/css/main.782c51b9.css",
+    "main.js": "/movie-review/static/js/main.5f18c129.js",
+    "static/media/star_icon.png": "/movie-review/static/media/star_icon.0004ef9a981dfbb39321.png",
+    "static/media/profile_icon.png": "/movie-review/static/media/profile_icon.694425620443237bf220.png",
+    "static/media/notification_icon.png": "/movie-review/static/media/notification_icon.2c1f8c9701ab9226dfbb.png",
+    "index.html": "/movie-review/index.html",
+    "main.782c51b9.css.map": "/movie-review/static/css/main.782c51b9.css.map",
+    "main.5f18c129.js.map": "/movie-review/static/js/main.5f18c129.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.782c51b9.css",
+    "static/js/main.5f18c129.js"
+  ]
+}
