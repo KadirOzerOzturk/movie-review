@@ -57,15 +57,15 @@ function Sidebar() {
     };
 
     return (
-        <div className='bg-gray-800 p-6 z-10 min-h-screen h-full min-w-64 rounded-xl'>
+        <div className='bg-gray-800 p-6 z-10 min-h-screen h-full min-w-60 rounded-xl'>
             <div className='flex justify-between items-center'>
                 <h1 className='text-slate-300 text-xl font-bold'>Genre</h1>
-                <button onClick={handleGenres} className='px-3 py-1 bg-slate-600 rounded-xl text-white hover:bg-netflix-black'>{showText}</button>
+                <button onClick={handleGenres} className='px-3 py-1 bg-slate-600 rounded-xl text-slate-300 hover:bg-netflix-black'>{showText}</button>
             </div>
             <div className='grid grid-cols-2 pt-6 gap-x-2'>
                 {showGenres.map((genre, index) => (
                     <ul key={index} className='pt-3'>
-                        <li className='px-2 py-1 bg-slate-950 hover:bg-white hover:text-netflix-black cursor-pointer duration-200 rounded-xl text-white'>
+                        <li className='px-2 py-1 bg-slate-950 hover:bg-white hover:text-netflix-black cursor-pointer duration-200 rounded-xl text-slate-300'>
                             {genre.name}
                         </li>
                     </ul>
@@ -75,15 +75,15 @@ function Sidebar() {
             <h1 className='text-slate-300 text-xl font-bold mt-8 border-t-2 border-black py-8'>Top Rated</h1>
             <div>
                 {topRatedMovies.map((movie, index) => (
-                    <div key={index} className='flex gap-3'>
-                        <img onClick={()=>navigate(`/${movie.id}`)} src={"http://image.tmdb.org/t/p/w500/" + movie.backdrop_path} alt="" className='h-24 w-20 object-cover mb-3 rounded-xl cursor-pointer' />
+                    <div key={index} onClick={()=>navigate(`/${movie.id}`)} className='flex gap-3'>
+                        <img  src={"http://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="" className='h-24 w-20 object-cover mb-3 rounded-xl cursor-pointer' />
                         <div>
-                            <p className='text-white'>{movie.original_title}</p>
+                            <p className='text-slate-300 cursor-pointer'>{movie.original_title}</p>
                             <div class="flex items-center">
                                 <img src={starIcon} alt="" className='h-5 w-5' />
-                                <p class="ms-2 text-sm font-bold text-white">{parseFloat(movie.vote_average.toFixed(1))}</p>
+                                <p class="ms-2 text-sm font-bold text-slate-300">{parseFloat(movie.vote_average.toFixed(1))}</p>
                                 <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                                <a href="#" class="text-sm font-medium  underline text-white text-nowrap">{movie.vote_count}</a>
+                                <a href="#" class="text-sm font-medium  underline text-slate-300 text-nowrap">{movie.vote_count}</a>
                             </div>
                         </div>
                     </div>

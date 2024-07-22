@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar";
 import Home from './pages/Home';
 import { Route, Routes } from 'react-router-dom';
 import MovieDetails from './pages/MovieDetails';
+import SearchResults from './pages/SearchResults';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path={`/:id`} element={<MovieDetails />} />
-          </Routes>
+            <Route path="/search/:queryString" element={<SearchResults />} />
+            </Routes>
 
         </div>
         <Sidebar />

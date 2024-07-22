@@ -45,26 +45,31 @@ function CategorizeMovies({ title }) {
       setCurrentIndex(currentIndex - 8);
     }
   };
-
+  
+  function formatString(input) {
+    // Alt çizgi (_) karakterini boşlukla değiştirir ve 
+    // kelimelerin ilk harflerini büyük harf yapar.
+    return input.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  }
   return (
-    <div className='mt-8 '>
+    <div className='mt-8 ml-3 '>
       <div className="flex justify-between items-center p-4">
-        <h1 className='text-white'>{capitalize(title)}</h1>
+        <h1 className='text-slate-300'>{capitalize(formatString(title))}</h1>
         <div className='mr-8 flex'>
-          <img src={arrowIcon} onClick={prevSlide} disabled={currentIndex === 0} className="mr-2 px-4 py-2 h-10 bg-gray-700 rotate-180 text-white rounded cursor-pointer hover:bg-gray-900"/>
-          <img src={arrowIcon} onClick={nextSlide} disabled={currentIndex >= movies.length - 8} className="px-4 py-2 h-10 bg-gray-700 text-white rounded cursor-pointer hover:bg-gray-900"/>
+          <img src={arrowIcon} onClick={prevSlide} disabled={currentIndex === 0} className="mr-2 px-4 py-2 h-10 bg-gray-700 rotate-180 text-slate-300 rounded cursor-pointer hover:bg-gray-900"/>
+          <img src={arrowIcon} onClick={nextSlide} disabled={currentIndex >= movies.length - 8} className="px-4 py-2 h-10 bg-gray-700 text-slate-300 rounded cursor-pointer hover:bg-gray-900"/>
         </div>
       </div>
       <ul className='flex gap-4'>
         {movies.slice(currentIndex, currentIndex + 8).map((movie, index) => (
           <li onClick={()=>navigate(`/${movie.id}`)} key={index} className='relative w-48 h-72 cursor-pointer'>
             <img
-              src={"http://image.tmdb.org/t/p/w500/" + movie.backdrop_path}
+              src={"http://image.tmdb.org/t/p/w500/" + movie.poster_path}
               className="w-full h-full object-cover rounded-lg"
               alt="Movie Backdrop"
             />
             <div className='absolute bottom-0 left-0 w-full h-12 bg-gray-800 bg-opacity-50 flex items-center'>
-              <p className='text-white text-lg px-2'>{sliceStr(movie.original_title)}</p>
+              <p className='text-slate-300 text-lg px-2'>{sliceStr(movie.original_title)}</p>
             </div>
           </li>
         ))}
