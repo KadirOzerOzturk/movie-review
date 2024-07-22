@@ -1,8 +1,10 @@
 import React from 'react';
-import CategorizeMovies from "./components/CategorizeMovies";
-import MovieCarousel from "./components/MovieCarousel";
+
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import Home from './pages/Home';
+import { Route, Routes } from 'react-router-dom';
+import MovieDetails from './pages/MovieDetails';
 
 function App() {
   return (
@@ -10,12 +12,11 @@ function App() {
       <Navbar />
       <div className="flex">
         <div className="flex-grow">
-          <MovieCarousel />
-          <div>
-            <CategorizeMovies title={"popular"} />
-            <CategorizeMovies title={"top_rated"} />
-            <CategorizeMovies title={"upcoming"} />
-          </div>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path={`/:id`} element={<MovieDetails />} />
+          </Routes>
+
         </div>
         <Sidebar />
       </div>

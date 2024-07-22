@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import starIcon from "../icons/star_icon.png"
+import { useNavigate } from 'react-router-dom';
 
 function Sidebar() {
     const [genres, setGenres] = useState([]);
@@ -8,6 +9,7 @@ function Sidebar() {
     const [isShowAll, setIsShowAll] = useState(false);
     const [showText, setShowText] = useState("See All");
     const [topRatedMovies, setTopRatedMovies] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -55,7 +57,7 @@ function Sidebar() {
     };
 
     return (
-        <div className='bg-gray-800 p-6 z-10 min-h-screen h-full w-64 rounded-xl'>
+        <div className='bg-gray-800 p-6 z-10 min-h-screen h-full min-w-64 rounded-xl'>
             <div className='flex justify-between items-center'>
                 <h1 className='text-slate-300 text-xl font-bold'>Genre</h1>
                 <button onClick={handleGenres} className='px-3 py-1 bg-slate-600 rounded-xl text-white hover:bg-netflix-black'>{showText}</button>
@@ -74,7 +76,7 @@ function Sidebar() {
             <div>
                 {topRatedMovies.map((movie, index) => (
                     <div key={index} className='flex gap-3'>
-                        <img src={"http://image.tmdb.org/t/p/w500/" + movie.backdrop_path} alt="" className='h-24 w-20 object-cover mb-3 rounded-xl' />
+                        <img onClick={()=>navigate(`/${movie.id}`)} src={"http://image.tmdb.org/t/p/w500/" + movie.backdrop_path} alt="" className='h-24 w-20 object-cover mb-3 rounded-xl cursor-pointer' />
                         <div>
                             <p className='text-white'>{movie.original_title}</p>
                             <div class="flex items-center">

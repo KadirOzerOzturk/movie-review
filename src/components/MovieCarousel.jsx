@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function MovieCarousel() {
     const [movies, setMovies] = useState([]);
     const [currentSlide, setCurrentSlide] = useState(0);
-
+    const navigate = useNavigate();
+    
     useEffect(() => {
         const fetchMovies = async () => {
             try {
@@ -24,6 +26,7 @@ function MovieCarousel() {
 
         fetchMovies();
     }, []);
+
     function sliceOverview(str) {
         return str.length > 50 ? str.slice(0, 50) + '...' : str;
     }
@@ -60,7 +63,7 @@ function MovieCarousel() {
 
                             </div>
                             <div className='absolute bottom-8 right-1/4 '>
-                                <button className='bg-netflix-red rounded-lg px-4 py-2 text-xl  text-white'>Overview </button>
+                                <button className='bg-netflix-red rounded-lg px-4 py-2 text-xl  text-white' onClick={()=>navigate(`/${movie.id}`)}>Overview </button>
 
                             </div>
                         </div>

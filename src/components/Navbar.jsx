@@ -3,11 +3,14 @@ import mainLogo from "../icons/netflix_icon.png"
 import searchIcon from "../icons/search_icon.png"
 import notificationIcon from "../icons/notification_icon.png"
 import profileIcon from "../icons/profile_icon.png"
+import { useNavigate } from 'react-router-dom'
 function Navbar() {
+    const navigate = useNavigate();
+
     return (
         <div className='h-24 flex text-center  justify-between items-center px-24 '>
             <div className='h-16 '>
-                <img src={mainLogo} alt="" className='h-16   rounded-xl' />
+                <img src={mainLogo} alt="" className='h-16   rounded-xl cursor-pointer' onClick={()=>navigate("/")}/>
             </div>
             <div className='flex justify-between items-center text-white gap-4 appearance-none'>
                 <ul className='flex justify-between items-center text-white gap-4 appearance-none'>

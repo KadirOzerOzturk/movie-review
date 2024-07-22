@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import arrowIcon from "../icons/arrow_icon.png"
+import { useNavigate } from 'react-router-dom';
 
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -13,6 +14,7 @@ function sliceStr(str) {
 function CategorizeMovies({ title }) {
   const [movies, setMovies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate=useNavigate()
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -55,7 +57,7 @@ function CategorizeMovies({ title }) {
       </div>
       <ul className='flex gap-4'>
         {movies.slice(currentIndex, currentIndex + 8).map((movie, index) => (
-          <li key={index} className='relative w-48 h-72'>
+          <li onClick={()=>navigate(`/${movie.id}`)} key={index} className='relative w-48 h-72 cursor-pointer'>
             <img
               src={"http://image.tmdb.org/t/p/w500/" + movie.backdrop_path}
               className="w-full h-full object-cover rounded-lg"
